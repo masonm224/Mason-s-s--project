@@ -12,8 +12,9 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    //follow player stuff   
-    enemyRigidbody = GetComponent<Rigidbody>();
+
+       //follow player stuff   
+       enemyRigidbody = GetComponent<Rigidbody>();
        player = GameObject.Find("Player");
 
     }
