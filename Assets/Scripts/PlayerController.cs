@@ -26,9 +26,10 @@ public class PlayerController : MonoBehaviour
 
       transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
       transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-
+      
       //Player Movement Boundaries
-       if (transform.position.x < -xBoundary){
+      
+      if (transform.position.x < -xBoundary){
           transform.position = new Vector3(-xBoundary, transform.position.y, transform.position.z);
        }
 
@@ -43,8 +44,8 @@ public class PlayerController : MonoBehaviour
        if (transform.position.z > zBoundary){
           transform.position = new Vector3(transform.position.x, transform.position.y, zBoundary);
        }
-
-
+       
+       
       
       
     }
