@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 10;
+    private float moveSpeed = 10;
     public float horizontalInput;
     public float verticalInput;
     private int xBoundary = 22;
     private int zBoundary = 12;
-
+    private Vector3 movement;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +20,32 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        movement = Vector3.zero;
         //Player Movement
-      horizontalInput = Input.GetAxis("Horizontal");
-      verticalInput = Input.GetAxis("Vertical");
+        if (Input.GetKey(KeyCode.W)) // Move forward
+        {
+            movement += Vector3.forward;
+        }
+        if (Input.GetKey(KeyCode.S)) // Move backward
+        {
+            movement += Vector3.back;
+        }
 
-      transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
-      transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-      
+        // Handle left and right movement (A and D)
+        if (Input.GetKey(KeyCode.A)) // Move left
+        {
+            movement += Vector3.left;
+        }
+        if (Input.GetKey(KeyCode.D)) // Move right
+        {
+            movement += Vector3.right;
+        }
+
+        // Normalize movement to prevent faster diagonal movement
+        movement = movement.normalized * moveSpeed * Time.deltaTime;
+
+        // Apply the movement using transform.Translate
+        transform.Translate(movement);
       //Player Movement Boundaries
       
       if (transform.position.x < -xBoundary){
