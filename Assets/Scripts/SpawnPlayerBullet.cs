@@ -24,25 +24,25 @@ public class SpawnPlayerBullet : MonoBehaviour
         // Shooting in all directions for each player
         //P1
         
-        if (Input.GetKeyDown(KeyCode.X)) 
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.I)) 
         {
 
             Instantiate(playerBulletFWPrefab, transform.position, playerBulletFWPrefab.transform.rotation);
 
         }
-        if (Input.GetKeyDown(KeyCode.V)) 
+        if (Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.K)) 
         {
 
             Instantiate(playerBulletDWPrefab, transform.position, playerBulletDWPrefab.transform.rotation);
 
         }
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.J)) 
         {
 
             Instantiate(playerBulletLPrefab, transform.position, playerBulletLPrefab.transform.rotation);
 
         }
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.L))
         {
 
             Instantiate(playerBulletRPrefab, transform.position, playerBulletRPrefab.transform.rotation);

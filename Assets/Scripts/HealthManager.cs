@@ -20,6 +20,7 @@ public class HealthManager : MonoBehaviour
     private GameObject player2;
     private Rigidbody playerRigidbody;
     private Rigidbody player2Rigidbody;
+    private SpawnManager spawnManager;
 
     // Start is called before the first frame update
     void Start()
@@ -39,25 +40,30 @@ public class HealthManager : MonoBehaviour
 
 
         
-        if (healthP1 == 0 && !isGameActive)
+        if (healthP1 == 0 && isGameActive)
         {
-            
             Destroy(player);
-
+            
+            if(healthP2 <= 0)
+            {
+            GameOver();
+            }
+            spawnManager.spawnInterval /= 2;
         }
         
-        else if (healthP2 == 0 && !isGameActive)
+        else if (healthP2 == 0 && isGameActive)
         {
-            
             Destroy(player2);
-
-        }
-        else if (healthP1 <= 0 && healthP2 <= 0)
-        {
             
+            if(healthP1 <= 0)
+            {
             GameOver();
-
+            }
+            spawnManager.spawnInterval /= 2;
         }
+        
+
+        
        
     }
 
@@ -67,6 +73,7 @@ public class HealthManager : MonoBehaviour
 
         gameOverText.gameObject.SetActive(true);
         Time.timeScale = 0; 
+        
     }
 
     // Changes health bar to show damage

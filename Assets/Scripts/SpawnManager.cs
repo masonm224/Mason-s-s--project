@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
     private float startDelay = 1;
-    private float spawnInterval = 1f;
+    public float spawnInterval = .5f;
     
 
     // Start is called before the first frame update

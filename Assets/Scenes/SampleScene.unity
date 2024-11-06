@@ -1067,6 +1067,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 4622070682866210857, guid: e4b217186c90aeb4dba44141baf60ea0, type: 3}
   - {fileID: 4239430989426743411, guid: 1986bb1bc6bb51c49ac7b238cb47c761, type: 3}
+  spawnInterval: 0.5
 --- !u!4 &1051276448
 Transform:
   m_ObjectHideFlags: 0
@@ -1692,10 +1693,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a793789f50a677e4f93e87ffa9ae6010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBulletFWPrefab: {fileID: 3188258253006040183, guid: bbad7e11f25bccc429fc519837f6f816, type: 3}
-  playerBulletRPrefab: {fileID: 6395594735520622425, guid: 2bee831572df452499c5bfe642905e8c, type: 3}
-  playerBulletDWPrefab: {fileID: 7804825860566700278, guid: 37f85bae51b6330438881be796c48739, type: 3}
-  playerBulletLPrefab: {fileID: 6711133681416317405, guid: 5b81fd0ea8faf08438d4176e20d1dc95, type: 3}
+  playerBulletFWPrefab: {fileID: 6990453969437987148, guid: e1dd7fad4edcb4d459e64590a26884b8, type: 3}
+  playerBulletRPrefab: {fileID: 4687873068318050275, guid: bbf1842e3b192eb4fb4136e923cc155d, type: 3}
+  playerBulletDWPrefab: {fileID: 4977947147050950198, guid: 40600579342b5db4db27a477b1e86423, type: 3}
+  playerBulletLPrefab: {fileID: 1476469941983987841, guid: e892518f2f183724691e01a80e480dc8, type: 3}
 --- !u!1 &1727240978
 GameObject:
   m_ObjectHideFlags: 0
