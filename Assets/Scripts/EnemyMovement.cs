@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+
+    private HealthManager healthManager;
     public float speed = 1;
     private Rigidbody enemyRigidbody;
     private GameObject player;
@@ -15,6 +17,8 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthManager = GameObject.Find("Health Manager").GetComponent<HealthManager>();
+
 
        //follow player stuff   
        enemyRigidbody = GetComponent<Rigidbody>();
@@ -48,6 +52,16 @@ public class EnemyMovement : MonoBehaviour
        }
    }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
 
-      
+            healthManager.DealDamageP1(20);
+
+        }
+    }
+
+
+
 }
