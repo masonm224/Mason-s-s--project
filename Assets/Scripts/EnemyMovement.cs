@@ -5,11 +5,9 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
-    private HealthManager healthManager;
     public float speed = 1;
     private Rigidbody enemyRigidbody;
     private GameObject player;
-    
     private int xBoundary = 30;
     private int zBoundary = 20; 
 
@@ -17,20 +15,17 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthManager = GameObject.Find("Health Manager").GetComponent<HealthManager>();
-
 
        //follow player stuff   
        enemyRigidbody = GetComponent<Rigidbody>();
        player = GameObject.Find("Player");
-       
-       
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
         //follow player stuff
         enemyRigidbody.AddForce((player.transform.position - transform.position).normalized * speed/7);
         
@@ -51,17 +46,4 @@ public class EnemyMovement : MonoBehaviour
           transform.position = new Vector3(transform.position.x, transform.position.y, zBoundary);
        }
    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-
-            healthManager.DealDamageP1(20);
-
-        }
-    }
-
-
-
 }

@@ -12,6 +12,8 @@ public class EnemyMovement2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+         
+
         //follow player stuff   
        enemyRigidbody = GetComponent<Rigidbody>();
        

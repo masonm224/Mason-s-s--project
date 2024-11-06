@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
     private int xBoundary = 22;
     private int zBoundary = 12;
     private Vector3 movement;
+    private HealthManager healthManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        healthManager = GameObject.Find("HealthManager").GetComponent<HealthManager>();
     }
 
     // Update is called once per frame
@@ -65,7 +67,15 @@ public class PlayerController : MonoBehaviour
        }
        
        
-      
-      
+    }
+    
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            
+            healthManager.DealDamageP1(20);
+
+        }
     }
 }

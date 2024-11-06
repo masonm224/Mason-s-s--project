@@ -16,10 +16,18 @@ public class HealthManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public float healthP1 = 100.0f;
     public float healthP2 = 100.0f;
+    private GameObject player;
+    private GameObject player2;
+    private Rigidbody playerRigidbody;
+    private Rigidbody player2Rigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
+        player2 = GameObject.Find("Player2");
+        playerRigidbody = GetComponent<Rigidbody>();
+        player2Rigidbody = GetComponent<Rigidbody>();
         
     }
 
@@ -30,23 +38,27 @@ public class HealthManager : MonoBehaviour
         Timer();
 
 
-        //test damage
-
-        if (Input.GetKeyDown(KeyCode.Return))
+        
+        if (healthP1 == 0 && !isGameActive)
         {
-
-            DealDamageP1(25);
-            DealDamageP2(25);
-
-        }
-
-        if (healthP1 <= 0 && healthP2 <= 0)
-        {
-
-            GameOver();
+            
+            Destroy(player);
 
         }
         
+        else if (healthP2 == 0 && !isGameActive)
+        {
+            
+            Destroy(player2);
+
+        }
+        else if (healthP1 <= 0 && healthP2 <= 0)
+        {
+            
+            GameOver();
+
+        }
+       
     }
 
     // sets up game over screen
@@ -54,7 +66,7 @@ public class HealthManager : MonoBehaviour
     {
 
         gameOverText.gameObject.SetActive(true);
-
+        Time.timeScale = 0; 
     }
 
     // Changes health bar to show damage
@@ -64,7 +76,8 @@ public class HealthManager : MonoBehaviour
         healthP1 -= damage;
 
         healthBarP1.fillAmount = healthP1 / 100.0f;
-
+        
+        
     }
 
     // Damage for player 2
@@ -74,6 +87,8 @@ public class HealthManager : MonoBehaviour
         healthP2 -= damage;
 
         healthBarP2.fillAmount = healthP2 / 100.0f;
+
+        
 
     }
 

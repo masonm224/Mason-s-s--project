@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1163835571321503778, guid: e4b217186c90aeb4dba44141baf60ea0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3212823972072342840, guid: e4b217186c90aeb4dba44141baf60ea0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.7
@@ -52,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5754771360845753262, guid: e4b217186c90aeb4dba44141baf60ea0, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2377884869275316637, guid: e4b217186c90aeb4dba44141baf60ea0, type: 3}
     m_RemovedGameObjects: []
@@ -78,4 +86,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dfc36b9bb4cf04429184415d8bde867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
