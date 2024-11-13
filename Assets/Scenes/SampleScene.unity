@@ -511,6 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 455602781}
+  time: 120
   isGameActive: 1
   healthBarP1: {fileID: 483818265}
   healthBarP2: {fileID: 1045057588}
@@ -638,7 +639,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5419297242242189115, guid: e66292f4b6199454f9df7560f0715d15, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.27
+      value: -11.36
       objectReference: {fileID: 0}
     - target: {fileID: 5419297242242189115, guid: e66292f4b6199454f9df7560f0715d15, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1093,7 +1094,11 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 4622070682866210857, guid: e4b217186c90aeb4dba44141baf60ea0, type: 3}
   - {fileID: 4239430989426743411, guid: 1986bb1bc6bb51c49ac7b238cb47c761, type: 3}
+  enemyShootPrefabs:
+  - {fileID: 1530830893778391308, guid: 74ff2131a03539148a55d3a7931eba23, type: 3}
+  - {fileID: 2888859985548037594, guid: 609c618bca66f7847a189c541717dcde, type: 3}
   spawnInterval: 0.5
+  otherSpawnInterval: 5
 --- !u!4 &1051276448
 Transform:
   m_ObjectHideFlags: 0

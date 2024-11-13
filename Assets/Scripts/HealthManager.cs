@@ -49,7 +49,7 @@ public class HealthManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            RestartGame();
+           StartCoroutine(RestartGame());
         }
 
         if (healthP1 == 0 && isGameActive)
@@ -89,12 +89,6 @@ public class HealthManager : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad1) && restartPrompt == true)
-        {
-
-            RestartGame();
-
-        }
      
     }
 
@@ -150,9 +144,19 @@ public class HealthManager : MonoBehaviour
 
     }
 
-    public void RestartGame()
+    public IEnumerator RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(currentScene.name);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+
+        }
+
     }
+   
 
 }

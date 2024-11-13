@@ -7,37 +7,25 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] enemyPrefabs;
     public GameObject[] enemyShootPrefabs;
     private float startDelay = 1;
+    private float longDelay = 30;
     public float spawnInterval = .5f;
-    private HealthManager healthManager;
+    public float otherSpawnInterval = 5f;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        healthManager = GameObject.Find("HealthManager").GetComponent<HealthManager>();
 
         InvokeRepeating("SpawnEnemy", startDelay, spawnInterval);
-	    Cursor.visible = false;
-
-
+        InvokeRepeating("SpawnShootEnemy", longDelay, otherSpawnInterval);
+        Cursor.visible = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (healthManager.time == 60)
-        {
-
-            SpawnShoot();
-
-        }
-
-        if (healthManager.time == 30)
-        {
-
-            SpawnFaster();
-
-        }
 
 
     }
@@ -58,20 +46,6 @@ public class SpawnManager : MonoBehaviour
     }
 
 
-    private void SpawnShoot()
-    {
-
-        InvokeRepeating("SpawnShootEnemy", startDelay, spawnInterval);
-
-    }
-
-    private void SpawnFaster()
-    {
-
-        spawnInterval *= 2;
-
-    }
-
     Vector3 GenerateRandomVector()
     {
         // Generate a random float between -25 and 25 for the x component
@@ -89,10 +63,10 @@ public class SpawnManager : MonoBehaviour
     Vector3 ShooterGenerateRandomVector()
     {
 
-        // Generate a random float between -25 and 25 for the x component
-        float randomZ = Random.Range(-25f, 25f);
+        // Generate a random float between -25 and 25 for the z component
+        float randomZ = Random.Range(-18f, 18f);
 
-        // Fixed values for y and z
+        // Fixed values for y and x
         float y = 0.5f;
         float x = Random.Range(0, 2) == 0 ? 18f : -18f;
 
