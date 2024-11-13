@@ -18,7 +18,6 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnEnemy", startDelay, spawnInterval);
 	    Cursor.visible = false;
 
-       
 
     }
 
@@ -26,14 +25,14 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
 
-        while (healthManager.time <= 60)
+        if (healthManager.time == 60)
         {
 
             SpawnShoot();
 
         }
 
-        while (healthManager.time <= 30)
+        if (healthManager.time == 30)
         {
 
             SpawnFaster();

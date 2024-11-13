@@ -88,6 +88,13 @@ public class HealthManager : MonoBehaviour
             spawnManager.spawnInterval /= 2;
 
         }
+
+        if (Input.GetKeyDown(KeyCode.Keypad1) && restartPrompt == true)
+        {
+
+            RestartGame();
+
+        }
      
     }
 
