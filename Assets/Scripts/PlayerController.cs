@@ -66,11 +66,6 @@ public class PlayerController : MonoBehaviour
           transform.position = new Vector3(transform.position.x, transform.position.y, zBoundary);
        }
 
-       if (Input.GetKeyUp(KeyCode.Escape))
-       {
-           Application.Quit();
-       }
-
 
     }
 

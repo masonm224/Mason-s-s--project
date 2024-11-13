@@ -65,12 +65,6 @@ public class Player2Controller : MonoBehaviour
           transform.position = new Vector3(transform.position.x, transform.position.y, zBoundary);
         }
 
-
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-
     }
       public void OnTriggerEnter(Collider other)
     {

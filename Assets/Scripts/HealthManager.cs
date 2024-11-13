@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class HealthManager : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class HealthManager : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Escape)) 
         { 
-	    Application.Quit();
+	        Application.Quit();
         }
 
         if (Input.GetKey(KeyCode.Alpha1))
@@ -57,20 +58,35 @@ public class HealthManager : MonoBehaviour
             
             if(healthP2 <= 0)
             {
-            GameOver();
+
+                GameOver();
+
             }
+
+            GameObject kill = GameObject.Find("Enemy(Clone)");
+
+            Destroy(kill);
+
             spawnManager.spawnInterval /= 2;
+
         }
-        
         else if (healthP2 == 0 && isGameActive)
         {
             Destroy(player2);
             
             if(healthP1 <= 0)
             {
-            GameOver();
+
+                GameOver();
+
             }
+
+            GameObject kill = GameObject.Find("Enemy 2 Variant(Clone)");
+
+            Destroy(kill);
+
             spawnManager.spawnInterval /= 2;
+
         }
      
     }
@@ -91,8 +107,7 @@ public class HealthManager : MonoBehaviour
         healthP1 -= damage;
 
         healthBarP1.fillAmount = healthP1 / 100.0f;
-        
-        
+           
     }
 
     // Damage for player 2
@@ -102,8 +117,6 @@ public class HealthManager : MonoBehaviour
         healthP2 -= damage;
 
         healthBarP2.fillAmount = healthP2 / 100.0f;
-
-        
 
     }
 

@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4622070682866210857, guid: e4b217186c90aeb4dba44141baf60ea0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5754771360845753262, guid: e4b217186c90aeb4dba44141baf60ea0, type: 3}
       propertyPath: m_Constraints
       value: 116

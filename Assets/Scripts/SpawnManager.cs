@@ -18,23 +18,25 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnEnemy", startDelay, spawnInterval);
 	    Cursor.visible = false;
 
+       
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        while (healthManager.time < 60)
+        while (healthManager.time <= 60)
         {
 
-            InvokeRepeating("SpawnShootEnemy", startDelay, spawnInterval);
+            SpawnShoot();
 
         }
 
-        while (healthManager.time < 30)
+        while (healthManager.time <= 30)
         {
 
-            spawnInterval *= 2; 
+            SpawnFaster();
 
         }
 
@@ -53,6 +55,21 @@ public class SpawnManager : MonoBehaviour
         int enemyIndex = Random.Range(0, enemyPrefabs.Length);
 
         Instantiate(enemyShootPrefabs[enemyIndex], ShooterGenerateRandomVector(), enemyShootPrefabs[enemyIndex].transform.rotation);
+
+    }
+
+
+    private void SpawnShoot()
+    {
+
+        InvokeRepeating("SpawnShootEnemy", startDelay, spawnInterval);
+
+    }
+
+    private void SpawnFaster()
+    {
+
+        spawnInterval *= 2;
 
     }
 
