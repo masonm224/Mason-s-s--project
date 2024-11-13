@@ -13,7 +13,6 @@ public class HealthManager : MonoBehaviour
     public bool isGameActive = true;
     public Image healthBarP1;
     public Image healthBarP2;
-    public TextMeshProUGUI gameOverText;
     public float healthP1 = 100.0f;
     public float healthP2 = 100.0f;
     private GameObject player;
@@ -22,6 +21,10 @@ public class HealthManager : MonoBehaviour
     private Rigidbody player2Rigidbody;
     private SpawnManager spawnManager;
 
+    public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI restartPrompt;
+    public RawImage WinScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,17 +32,25 @@ public class HealthManager : MonoBehaviour
         player2 = GameObject.Find("Player2");
         playerRigidbody = GetComponent<Rigidbody>();
         player2Rigidbody = GetComponent<Rigidbody>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         //runs timer
         Timer();
 
+        if (Input.GetKeyUp(KeyCode.Escape)) 
+        { 
+	    Application.Quit();
+        }
 
-        
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            RestartGame();
+        }
+
         if (healthP1 == 0 && isGameActive)
         {
             Destroy(player);
@@ -70,10 +81,10 @@ public class HealthManager : MonoBehaviour
     // sets up game over screen
     public void GameOver()
     {
-
         gameOverText.gameObject.SetActive(true);
+        restartPrompt.gameObject.SetActive(true);
+        isGameActive = false;
         Time.timeScale = 0; 
-        
     }
 
     // Changes health bar to show damage
@@ -114,10 +125,17 @@ public class HealthManager : MonoBehaviour
         else if (time < 1.0f)
         {
 
-            GameOver();
+            WinScreen.gameObject.SetActive(true);
+            isGameActive = false;
+            Time.timeScale = 0; 
 
         }
 
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 

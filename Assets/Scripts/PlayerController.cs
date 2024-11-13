@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed = 10;
     public float horizontalInput;
     public float verticalInput;
-    private int xBoundary = 22;
-    private int zBoundary = 12;
+    private int xBoundary = 18;
+    private int zBoundary = 10;
     private Vector3 movement;
     private HealthManager healthManager;
 

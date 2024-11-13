@@ -8,8 +8,8 @@ public class Player2Controller : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
     private Vector3 movement;
-    private int xBoundary = 22;
-    private int zBoundary = 12;
+    private int xBoundary = 18;
+    private int zBoundary = 10;
     private HealthManager healthManager;
     // Start is called before the first frame update
     void Start()

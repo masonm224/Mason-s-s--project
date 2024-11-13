@@ -8,11 +8,11 @@ public class SpawnManager : MonoBehaviour
     private float startDelay = 1;
     public float spawnInterval = .5f;
     
-
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", startDelay, spawnInterval); 
+        InvokeRepeating("SpawnEnemy", startDelay, spawnInterval);
+	    Cursor.visible = false;
     }
 
     // Update is called once per frame
