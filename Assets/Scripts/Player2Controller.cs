@@ -64,7 +64,14 @@ public class Player2Controller : MonoBehaviour
         if (transform.position.z > zBoundary){
           transform.position = new Vector3(transform.position.x, transform.position.y, zBoundary);
         }
-      }
+
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+    }
       public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))

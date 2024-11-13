@@ -18,16 +18,4 @@ public class EnemyBulletMove : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * enemyBulletSpeed);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-
-            Destroy(gameObject);
-
-            Destroy(other.gameObject);
-
-        }
-
-    }
 }

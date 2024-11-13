@@ -8,8 +8,12 @@ public class EnemyShooterRight : MonoBehaviour
     public float speed = 1;
     private Rigidbody enemyShooterRRigidbody;
     private GameObject player;
-    private int xBoundary = 16;
-  
+    private int zBoundary = 16;
+
+    public GameObject[] bulletPrefabs;
+    private float startDelay = 1;
+    public float spawnInterval = 1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +22,8 @@ public class EnemyShooterRight : MonoBehaviour
         //follow player stuff   
         enemyShooterRRigidbody = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
+
+        InvokeRepeating("SpawnBullet", startDelay, spawnInterval);
 
     }
 
@@ -30,10 +36,22 @@ public class EnemyShooterRight : MonoBehaviour
 
         //enemy boundary to prevent them from walking to the player
 
-        if (transform.position.x > xBoundary)
+        if (transform.position.z > zBoundary)
         {
-            transform.position = new Vector3(xBoundary, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y, zBoundary);
         }
 
     }
+
+
+    private void SpawnBullet()
+    {
+
+        int bulletIndex = Random.Range(0, bulletPrefabs.Length);
+
+        Instantiate(bulletPrefabs[bulletIndex], transform.position, bulletPrefabs[bulletIndex].transform.rotation);
+
+    }
+
+
 }

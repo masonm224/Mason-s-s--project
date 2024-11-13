@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour
 {
 
     public TextMeshProUGUI timerText;
-    private float time = 120.0f;
+    public float time = 120.0f;
     public bool isGameActive = true;
     public Image healthBarP1;
     public Image healthBarP2;
@@ -72,10 +72,7 @@ public class HealthManager : MonoBehaviour
             }
             spawnManager.spawnInterval /= 2;
         }
-        
-
-        
-       
+     
     }
 
     // sets up game over screen
@@ -138,17 +135,4 @@ public class HealthManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-
-    /*
-    // Heals player
-    public void Heal(float healing)
-    {
-
-        health += healing;
-        health = Mathf.Clamp(healing, 0, 100);
-
-        healthBar.fillAmount += healing / 100.0f;
-
-    }
-    */
 }

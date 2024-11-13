@@ -7,7 +7,11 @@ public class EnemyShooterLeft : MonoBehaviour
     public float speed = 1;
     private Rigidbody enemyShooterLRigidbody;
     private GameObject player;
-    private int xBoundary = -16;
+    private int zBoundary = -16;
+
+    public GameObject[] bulletPrefabs;
+    private float startDelay = 1;
+    public float spawnInterval = 1;
 
 
     // Start is called before the first frame update
@@ -17,6 +21,8 @@ public class EnemyShooterLeft : MonoBehaviour
         //follow player stuff   
         enemyShooterLRigidbody = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
+
+        InvokeRepeating("SpawnLBullet", startDelay, spawnInterval);
 
     }
 
@@ -29,10 +35,20 @@ public class EnemyShooterLeft : MonoBehaviour
 
         //enemy boundary to prevent them from walking to the player
 
-        if (transform.position.x > xBoundary)
+        if (transform.position.z > zBoundary)
         {
-            transform.position = new Vector3(xBoundary, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.z, transform.position.y, zBoundary);
         }
 
     }
+
+    private void SpawnLBullet()
+    {
+
+        int bulletIndex = Random.Range(0, bulletPrefabs.Length);
+
+        Instantiate(bulletPrefabs[bulletIndex], transform.position, bulletPrefabs[bulletIndex].transform.rotation);
+
+    }
+
 }
